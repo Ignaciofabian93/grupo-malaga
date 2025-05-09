@@ -9,7 +9,7 @@ export async function POST(req: Request) {
 
     const { data, error } = await resend.emails.send({
       from: "Sitio Web <noreply@grupomalaga.cl>",
-      to: ["ignaciofabian93@gmail.com"],
+      to: ["macorrea@grupomalaga.cl"],
       subject: "Contacto desde sitio web",
       react: EmailTemplate({ name, email, message }),
     });

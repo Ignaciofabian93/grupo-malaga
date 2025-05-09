@@ -21,7 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <meta property="og:image" content="/public/images/favicon.png"></meta>
+      <meta
+        property="og:image"
+        content="https://www.grupomalaga.cl/images/favicon.png"
+      ></meta>
       <meta property="og:site_name" content="grupomalaga.cl"></meta>
       <meta property="og:title" content="Grupo Málaga"></meta>
       <meta
@@ -30,19 +33,19 @@ export default function RootLayout({
       />
       <meta property="og:url" content="https://www.grupomalaga.cl/"></meta>
 
-      {/* <meta
+      <meta
         property="twitter:image"
-        content="Twitter link preview image URL"
+        content="https://www.grupomalaga.cl/images/favicon.png"
       ></meta>
-      <meta property="twitter:card" content="summary_large_image"></meta>
+      <meta property="twitter:card" content="Grupo Málaga"></meta>
       <meta
         property="twitter:title"
-        content="Twitter link preview title"
+        content="Grupo Málaga - Corretaje de Propiedades en Chile"
       ></meta>
       <meta
         property="twitter:description"
-        content="Twitter link preview description"
-      ></meta> */}
+        content="Corretaje de Propiedades en Chile"
+      ></meta>
       <body className={`${roboto.variable} antialiased`}>
         <ToastContainer
           position="top-center"
