@@ -9,7 +9,7 @@ export default function EmailTemplate({
 }) {
   return (
     <div>
-      <h3>Nuevo mensaje de: {name}</h3>
+      <h3 className="text-[20px] font-semibold">Nuevo mensaje de: {name}</h3>
       <h4>Email: {email}</h4>
       <p>
         <strong>Mensaje: </strong>
