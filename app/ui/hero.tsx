@@ -19,7 +19,14 @@ export default function Hero() {
           "z-0"
         )}
       />
-      <h1 className={clsx("z-10", "text-[3rem] text-[#fff]")}>Grupo Málaga</h1>
+      <h1
+        className={clsx(
+          "z-10",
+          "text-[3rem] md:text-[4rem] lg:text-[6rem] text-[#fff]"
+        )}
+      >
+        Grupo Málaga
+      </h1>
     </section>
   );
 }

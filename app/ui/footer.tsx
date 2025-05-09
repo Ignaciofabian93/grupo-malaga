@@ -37,7 +37,7 @@ export default function Footer() {
             "text-sm text-center flex items-center justify-center w-full"
           )}
         >
-          Fiscalizada por el SERNAC y el MINVU
+          Fiscalizada por el SERNAC
         </p>
       </div>
       <div

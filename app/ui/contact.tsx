@@ -1,4 +1,6 @@
 "use client";
+import { useState } from "react";
+import { toast } from "react-toastify";
 import clsx from "clsx";
 
 type Input = {
@@ -41,7 +43,63 @@ const TextArea = ({ name, value, onChange, placeholder }: TextArea) => {
   );
 };
 
+const Button = () => {
+  return (
+    <button
+      type="submit"
+      className="w-full my-2 p-2 rounded-md bg-[#00252d] text-white hover:bg-[#00252d]/90 transition-colors duration-300"
+    >
+      Enviar
+    </button>
+  );
+};
+
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const { name, email, message } = formData;
+    if (!name || !email || !message) {
+      toast.error(`Todos los campos son requeridos`);
+      return;
+    }
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (result.data) {
+        toast.success(`Mensaje enviado correctamente`);
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        toast.error(`Algo salió mal con el envió de correo`);
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error(`Algo salió mal con el envió de correo`);
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -56,6 +114,7 @@ export default function Contact() {
         </h2>
       </div>
       <form
+        onSubmit={handleSubmit}
         className={clsx(
           "flex flex-col items-center justify-center w-full sm:max-w-[500px]"
         )}
@@ -64,22 +123,23 @@ export default function Contact() {
           name="name"
           type="text"
           placeholder="Nombre"
-          value={""}
-          onChange={() => {}}
+          value={formData.name}
+          onChange={handleChange}
         />
         <Input
           name="email"
           type="email"
           placeholder="Correo"
-          value={""}
-          onChange={() => {}}
+          value={formData.email}
+          onChange={handleChange}
         />
         <TextArea
           name="message"
-          value={""}
-          onChange={() => {}}
+          value={formData.message}
+          onChange={handleChange}
           placeholder="Mensaje"
         />
+        <Button />
       </form>
     </section>
   );
