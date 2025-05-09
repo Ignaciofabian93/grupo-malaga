@@ -9,7 +9,7 @@ import section2 from "@/app/assets/images/section2.jpg";
 
 const About = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-3">
       <p>{about.paragraph1}</p>
       <p>{about.paragraph2}</p>
       <p>{about.paragraph3}</p>
@@ -20,7 +20,7 @@ const About = () => {
 
 const Services = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-3">
       <p>{services.paragraph1}</p>
       <p>{services.paragraph2}</p>
       <p>{services.paragraph3}</p>

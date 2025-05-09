@@ -8,8 +8,8 @@ export async function POST(req: Request) {
     const { name, email, message } = await req.json();
 
     const { data, error } = await resend.emails.send({
-      from: "Sitio Web <website@resend.dev>",
-      to: ["macorrea@miuandes.cl"],
+      from: "Sitio Web <noreply@grupomalaga.cl>",
+      to: ["ignaciofabian93@gmail.com"],
       subject: "Contacto desde sitio web",
       react: EmailTemplate({ name, email, message }),
     });
