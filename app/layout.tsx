@@ -12,6 +12,20 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "Grupo Málaga",
   description: "Corretaje de Propiedades en Chile",
+  keywords:
+    "Grupo Málaga, propiedades, corretaje, departamentos, casas, viviendas, asesoría, viviendas en chile, corredora de propiedades, grupomalaga.cl, www.grupomalaga.cl",
+  authors: [
+    {
+      name: "Grupo Málaga",
+      url: "https://www.grupomalaga.cl",
+    },
+  ],
+  robots: "index, follow",
+  openGraph: {
+    title: "Grupo Málaga",
+    description: "Corretaje de Propiedades en Chile",
+    images: ["https://grupomalaga.cl/images/favicon.png"],
+  },
 };
 
 export default function RootLayout({
@@ -20,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <meta
         property="og:image"
         content="https://www.grupomalaga.cl/images/favicon.png"
@@ -46,6 +60,11 @@ export default function RootLayout({
         property="twitter:description"
         content="Corretaje de Propiedades en Chile"
       ></meta>
+
+      <link rel="icon" href="/favicon.png" type="image/x-icon" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
       <body className={`${roboto.variable} antialiased`}>
         <ToastContainer
           position="top-center"
